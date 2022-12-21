@@ -1,16 +1,64 @@
 #include QMK_KEYBOARD_H
 
-enum {
-    d34_base, d34_lmod
+/*
+enum d34_keycodes {
+    OPT = SAFE_RANGE,
 };
+*/
+
+#define LT_SPC LT(1, KC_SPC)
+#define CTL_W LCTL(KC_W)
+#define CTL_Z LCTL(KC_Z)
+#define CTL_X LCTL(KC_X)
+#define CTL_C LCTL(KC_C)
+#define CTL_V LCTL(KC_V)
+
+bool
+process_record_user(uint16_t keycode, keyrecord_t *record)
+{
+    switch (keycode) {
+        default:
+            return true;
+    }
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [d34_base] = LAYOUT(
-        KC_Q, KC_W, KC_E, KC_R,  KC_T,       KC_Y, KC_U, KC_I,    KC_O,   KC_P,
-        KC_A, KC_S, KC_D, KC_F,  KC_G,       KC_H, KC_J, KC_K,    KC_L,   KC_SCLN,
-        KC_Z, KC_X, KC_C, KC_V,  KC_B,       KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH,
-                          KC_P0, DB_TOGG,    KC_P2, KC_P3
+    /*
+    [tmp] = LAYOUT(
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                                   XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
+    )
+    */
+    [0] = LAYOUT(
+        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
+        KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,
+        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
+                                   XXXXXXX, LT_SPC,     MO(2),   XXXXXXX,
     ),
-    [d34_lmod] = LAYOUT(
+    [1] = LAYOUT(
+        TG(3),   CTL_W,   XXXXXXX, XXXXXXX, XXXXXXX,    KC_QUOT, KC_HASH, XXXXXXX, KC_AT,   XXXXXXX,
+        KC_LALT, KC_LSFT, KC_LCTL, KC_LGUI, XXXXXXX,    KC_GRV,  KC_UNDS, KC_LPRN, KC_RPRN, XXXXXXX,
+        CTL_Z,   CTL_X,   CTL_C,   CTL_V,   XXXXXXX,    KC_EQL,  KC_AMPR, KC_LBRC, KC_RBRC, XXXXXXX,
+                                   XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
+    ),
+    [2] = LAYOUT(
+        KC_TILD, KC_PLUS, KC_ASTR, KC_PERC, KC_DQUO,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TG(4),
+        KC_PIPE, KC_LCBR, KC_RCBR, KC_MINS, KC_BSLS,    XXXXXXX, KC_LGUI, KC_LCTL, KC_LSFT, KC_LALT,
+        XXXXXXX, KC_LT,   KC_GT,   KC_EXLM, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RALT,
+                                   XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
+    ),
+    [3] = LAYOUT(
+        TG(3),   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                                   XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
+    ),
+    [4] = LAYOUT(
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TG(4),
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                                   XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
     )
 };
