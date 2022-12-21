@@ -1,10 +1,8 @@
 #include QMK_KEYBOARD_H
 
-/*
 enum d34_keycodes {
-    OPT = SAFE_RANGE,
+    SFT_TG = SAFE_RANGE,
 };
-*/
 
 #define LT_SPC LT(1, KC_SPC)
 #define LT_BSP LT(2, KC_BSPC)
@@ -18,6 +16,12 @@ bool
 process_record_user(uint16_t keycode, keyrecord_t *record)
 {
     switch (keycode) {
+        case SFT_TG:
+            if (record->event.pressed) {
+                add_oneshot_mods(OSM(KC_LALT));
+                add_oneshot_mods(OSL(5));
+            }
+            break;
         default:
             return true;
     }
@@ -26,10 +30,12 @@ process_record_user(uint16_t keycode, keyrecord_t *record)
 const uint16_t PROGMEM cmb_esc[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM cmb_ent[] = {KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM cmb_tab[] = {KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM cmb_wspc[] = {KC_N, KC_K, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmb_esc, KC_ESC),
     COMBO(cmb_ent, KC_ENT),
-    COMBO(cmb_tab, KC_TAB)
+    COMBO(cmb_tab, KC_TAB),
+    COMBO(cmb_wspc, SFT_TG)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -49,13 +55,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [1] = LAYOUT(
         TG(3),   CTL_W,   XXXXXXX, XXXXXXX, XXXXXXX,    KC_QUOT, KC_HASH, XXXXXXX, KC_AT,   XXXXXXX,
-        KC_LALT, KC_LSFT, KC_LCTL, KC_LALT, XXXXXXX,    KC_GRV,  KC_UNDS, KC_LPRN, KC_RPRN, XXXXXXX,
+        KC_RGUI, KC_LSFT, KC_LCTL, KC_LALT, XXXXXXX,    KC_GRV,  KC_UNDS, KC_LPRN, KC_RPRN, XXXXXXX,
         CTL_Z,   CTL_X,   CTL_C,   CTL_V,   XXXXXXX,    KC_EQL,  KC_AMPR, KC_LBRC, KC_RBRC, XXXXXXX,
                                    XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
     ),
     [2] = LAYOUT(
         KC_TILD, KC_PLUS, KC_ASTR, KC_PERC, KC_DQUO,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TG(4),
-        KC_PIPE, KC_LCBR, KC_RCBR, KC_MINS, KC_BSLS,    XXXXXXX, KC_LALT, KC_LCTL, KC_LSFT, KC_LALT,
+        KC_PIPE, KC_LCBR, KC_RCBR, KC_MINS, KC_BSLS,    XXXXXXX, KC_LALT, KC_LCTL, KC_LSFT, KC_RGUI,
         XXXXXXX, KC_LT,   KC_GT,   KC_EXLM, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RALT,
                                    XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
     ),
