@@ -2,6 +2,8 @@
 
 enum d34_keycodes {
     OS_SFT = SAFE_RANGE,
+    OS_CTL,
+    OS_ALT
 };
 
 #define LT_SPC LT(1, KC_SPC)
@@ -19,6 +21,12 @@ process_record_user(uint16_t keycode, keyrecord_t *record)
     switch (keycode) {
         case OS_SFT:
             set_oneshot_mods(MOD_LSFT);
+            return false;
+        case OS_CTL:
+            set_oneshot_mods(MOD_LCTL);
+            return false;
+        case OS_ALT:
+            set_oneshot_mods(MOD_LALT);
             return false;
         default:
             return true;
@@ -39,13 +47,15 @@ get_auto_shifted_key(uint16_t keycode, keyrecord_t *record)
     }
 }
 
-const uint16_t PROGMEM cmb_esc[] = {KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM cmb_esc[] = {KC_F, KC_J, COMBO_END};
 const uint16_t PROGMEM cmb_ent[] = {LT_BSP, LT_SPC, COMBO_END};
 const uint16_t PROGMEM cmb_tab[] = {KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM cmb_wspc[] = {KC_S, KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM cmb_wspc[] = {KC_R, KC_U, COMBO_END};
 const uint16_t PROGMEM cmb_atab[] = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM cmb_ossh[] = {KC_F, KC_J, COMBO_END};
-const uint16_t PROGMEM cmb_scap[] = {KC_D, KC_K, COMBO_END};
+const uint16_t PROGMEM cmb_ossh[] = {KC_S, KC_L, COMBO_END};
+const uint16_t PROGMEM cmb_scap[] = {KC_V, KC_M, COMBO_END};
+const uint16_t PROGMEM cmb_oscl[] = {KC_D, KC_K, COMBO_END};
+const uint16_t PROGMEM cmb_osat[] = {KC_A, KC_SCLN, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmb_esc, KC_ESC),
     COMBO(cmb_ent, KC_ENT),
@@ -53,8 +63,9 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmb_wspc, SFT_TG),
     COMBO(cmb_atab, A(KC_TAB)),
     COMBO(cmb_ossh, OS_SFT),
-    COMBO(cmb_scap, CW_TOGG)
-
+    COMBO(cmb_scap, CW_TOGG),
+    COMBO(cmb_oscl, OS_CTL),
+    COMBO(cmb_osat, OS_ALT)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
