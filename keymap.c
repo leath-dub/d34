@@ -20,13 +20,19 @@ process_record_user(uint16_t keycode, keyrecord_t *record)
 {
     switch (keycode) {
         case OS_SFT:
-            set_oneshot_mods(MOD_LSFT);
+            if (record->event.pressed) {
+                set_oneshot_mods(MOD_LSFT);
+            }
             return false;
         case OS_CTL:
-            set_oneshot_mods(MOD_LCTL);
+            if (record->event.pressed) {
+                set_oneshot_mods(MOD_LCTL);
+            }
             return false;
         case OS_ALT:
-            set_oneshot_mods(MOD_LALT);
+            if (record->event.pressed) {
+                set_oneshot_mods(MOD_LALT);
+            }
             return false;
         default:
             return true;
