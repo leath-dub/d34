@@ -1,8 +1,10 @@
 #include QMK_KEYBOARD_H
 
+/*
 enum d34_keycodes {
     SFT_TG = SAFE_RANGE,
 };
+*/
 
 #define LT_SPC LT(1, KC_SPC)
 #define LT_BSP LT(2, KC_BSPC)
@@ -11,18 +13,12 @@ enum d34_keycodes {
 #define CTL_X LCTL(KC_X)
 #define CTL_C LCTL(KC_C)
 #define CTL_V LCTL(KC_V)
+#define SFT_TG OSL(6)
 
 bool
 process_record_user(uint16_t keycode, keyrecord_t *record)
 {
     switch (keycode) {
-        case SFT_TG:
-            if (record->event.pressed) {
-                SEND_STRING(SS_TAP(OSM(X_LALT)));
-                SEND_STRING(SS_TAP(OSL(5)));
-            }
-            return false;
-            break;
         default:
             return true;
     }
@@ -82,6 +78,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, OSL(6),  XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, OSL(6),  XXXXXXX,
         KC_6,    KC_4,    KC_0,    KC_2,    XXXXXXX,    XXXXXXX, KC_3,    KC_1,    KC_5,    KC_7,
         XXXXXXX, XXXXXXX, XXXXXXX, KC_8,    XXXXXXX,    XXXXXXX, KC_9,    XXXXXXX, XXXXXXX, XXXXXXX,
+                                   TG(5),   KC_MEH,     KC_MEH, TG(5)
+    ),
+    [6] = LAYOUT( // like 5 except LALT is added
+        XXXXXXX, OSL(6),  XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, OSL(6),  XXXXXXX,
+        A(KC_6), A(KC_4), A(KC_0), A(KC_2), XXXXXXX,    XXXXXXX, A(KC_3), A(KC_1), A(KC_5), A(KC_7),
+        XXXXXXX, XXXXXXX, XXXXXXX, A(KC_8), XXXXXXX,    XXXXXXX, A(KC_9), XXXXXXX, XXXXXXX, XXXXXXX,
                                    TG(5),   KC_MEH,     KC_MEH, TG(5)
     )
 };
