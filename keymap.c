@@ -25,7 +25,7 @@ process_record_user(uint16_t keycode, keyrecord_t *record)
 }
 
 const uint16_t PROGMEM cmb_esc[] = {KC_D, KC_F, COMBO_END};
-const uint16_t PROGMEM cmb_ent[] = {KC_SPC, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM cmb_ent[] = {KC_SPC, KC_BSP, COMBO_END};
 const uint16_t PROGMEM cmb_tab[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM cmb_wspc[] = {KC_S, KC_D, KC_F, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
