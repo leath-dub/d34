@@ -28,11 +28,13 @@ const uint16_t PROGMEM cmb_esc[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM cmb_ent[] = {LT_BSP, LT_SPC, COMBO_END};
 const uint16_t PROGMEM cmb_tab[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM cmb_wspc[] = {KC_S, KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM cmb_atab[] = {KC_C, KC_V, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmb_esc, KC_ESC),
     COMBO(cmb_ent, KC_ENT),
     COMBO(cmb_tab, KC_TAB),
-    COMBO(cmb_wspc, SFT_TG)
+    COMBO(cmb_wspc, SFT_TG),
+    COMBO(cmb_atab, A(KC_TAB))
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
