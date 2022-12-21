@@ -18,8 +18,8 @@ process_record_user(uint16_t keycode, keyrecord_t *record)
     switch (keycode) {
         case SFT_TG:
             if (record->event.pressed) {
-                register_code(OSM(KC_LALT));
-                register_code(OSL(5));
+                SEND_STRING(SS_TAP(OSM(KC_LALT)));
+                SEND_STRING(SS_TAP(OSL(5)));
             }
             return false;
             break;
