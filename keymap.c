@@ -22,6 +22,13 @@ process_record_user(uint16_t keycode, keyrecord_t *record)
     }
 }
 
+const uint16_t PROGMEM cmb_esc[] = {KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM cmb_bspc[] = {KC_J, KC_K, COMBO_END};
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(cmb_exc, KC_ESC),
+    COMBO(cmb_bspc, KC_BSPC), // keycodes with modifiers are possible too!
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
     [tmp] = LAYOUT(
@@ -35,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
         KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
-                                   XXXXXXX, LT_SPC,     MO(2),   XXXXXXX
+                                   TT(5), LT_SPC,     MO(2),   TT(5)
     ),
     [1] = LAYOUT(
         TG(3),   CTL_W,   XXXXXXX, XXXXXXX, XXXXXXX,    KC_QUOT, KC_HASH, XXXXXXX, KC_AT,   XXXXXXX,
@@ -60,5 +67,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                    XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
+    ),
+    [5] = LAYOUT(
+        XXXXXXX, OSL(6),  XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, OSL(6),  XXXXXXX,
+        KC_6,    KC_4,    KC_0,    KC_2,    XXXXXXX,    XXXXXXX, KC_3,    KC_1,    KC_5,    KC_7,
+        XXXXXXX, XXXXXXX, XXXXXXX, KC_8,    XXXXXXX,    XXXXXXX, KC_9,    XXXXXXX, XXXXXXX, XXXXXXX,
+                                   TG(5),   KC_MEH,     KC_MEH, TG(5)
     )
 };
