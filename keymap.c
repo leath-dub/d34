@@ -7,6 +7,7 @@ enum d34_keycodes {
 */
 
 #define LT_SPC LT(1, KC_SPC)
+#define LT_BSP LT(2, KC_BSPC)
 #define CTL_W LCTL(KC_W)
 #define CTL_Z LCTL(KC_Z)
 #define CTL_X LCTL(KC_X)
@@ -23,11 +24,9 @@ process_record_user(uint16_t keycode, keyrecord_t *record)
 }
 
 const uint16_t PROGMEM cmb_esc[] = {KC_D, KC_F, COMBO_END};
-const uint16_t PROGMEM cmb_bspc[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM cmb_ent[] = {KC_K, KC_L, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmb_esc, KC_ESC),
-    COMBO(cmb_bspc, KC_BSPC),
     COMBO(cmb_ent, KC_ENT)
 };
 
@@ -44,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
         KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
-                                   TT(5), LT_SPC,     MO(2),   TT(5)
+                                   TT(5),   LT_SPC,     LT_BSP,  TT(5)
     ),
     [1] = LAYOUT(
         TG(3),   CTL_W,   XXXXXXX, XXXXXXX, XXXXXXX,    KC_QUOT, KC_HASH, XXXXXXX, KC_AT,   XXXXXXX,
