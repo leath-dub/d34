@@ -24,6 +24,20 @@ process_record_user(uint16_t keycode, keyrecord_t *record)
     }
 }
 
+bool
+get_custom_auto_shifted_key(uint16_t keycode, keyrecord_t *record)
+{
+    switch(keycode) {
+        case KC_SCLN:
+        case KC_SLSH:
+        case KC_DOT:
+        case KC_COMM:
+            return true;
+        default:
+            return false;
+    }
+}
+
 const uint16_t PROGMEM cmb_esc[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM cmb_ent[] = {LT_BSP, LT_SPC, COMBO_END};
 const uint16_t PROGMEM cmb_tab[] = {KC_S, KC_D, COMBO_END};
