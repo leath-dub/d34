@@ -1,10 +1,8 @@
 #include QMK_KEYBOARD_H
 
-/*
 enum d34_keycodes {
-    SFT_TG = SAFE_RANGE,
+    OS_SFT = SAFE_RANGE,
 };
-*/
 
 #define LT_SPC LT(1, KC_SPC)
 #define LT_BSP LT(2, KC_BSPC)
@@ -19,6 +17,9 @@ bool
 process_record_user(uint16_t keycode, keyrecord_t *record)
 {
     switch (keycode) {
+        case OS_SFT:
+            set_oneshot_mods(MOD_LSFT);
+            return false;
         default:
             return true;
     }
@@ -51,7 +52,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmb_tab, KC_TAB),
     COMBO(cmb_wspc, SFT_TG),
     COMBO(cmb_atab, A(KC_TAB)),
-    COMBO(cmb_ossh, OSM(KC_LSFT)),
+    COMBO(cmb_ossh, OS_SFT),
     COMBO(cmb_scap, CW_TOGG)
 
 };
