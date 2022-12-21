@@ -21,6 +21,7 @@ process_record_user(uint16_t keycode, keyrecord_t *record)
                 add_oneshot_mods(OSM(KC_LALT));
                 add_oneshot_mods(OSL(5));
             }
+            return false;
             break;
         default:
             return true;
