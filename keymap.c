@@ -3,7 +3,8 @@
 enum d34_keycodes {
     OS_SFT = SAFE_RANGE,
     OS_CTL,
-    OS_ALT
+    OS_ALT,
+    CT_BSPC
 };
 
 #define LT_SPC LT(1, KC_SPC)
@@ -47,9 +48,7 @@ get_auto_shifted_key(uint16_t keycode, keyrecord_t *record)
         case KC_SLSH:
         case KC_DOT:
         case KC_COMM:
-            if (record->event.pressed) {
-                return true;
-            }
+            return true;
         default:
             return false;
     }
