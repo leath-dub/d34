@@ -133,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, OSL(7),  XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, OSL(7),  XXXXXXX,
         KC_6,    KC_4,    KC_0,    KC_2,    XXXXXXX,    XXXXXXX, KC_3,    KC_1,    KC_5,    KC_7,
         XXXXXXX, XXXXXXX, XXXXXXX, KC_8,    XXXXXXX,    XXXXXXX, KC_9,    XXXXXXX, XXXXXXX, XXXXXXX,
-                                   TG(5),   KC_MEH,     KC_MEH, TG(5)
+                                   TG(5),   KC_SPC,     KC_BSPC, TG(5)
     ),
     [6] = LAYOUT( // like 5 except LALT is added
         XXXXXXX, OSL(6),  XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, OSL(6),  XXXXXXX,
