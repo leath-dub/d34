@@ -53,6 +53,16 @@ get_auto_shifted_key(uint16_t keycode, keyrecord_t *record)
     }
 }
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT_SPC:
+        case LT_BSP:
+            return TAPPING_TERM - 100;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
 const uint16_t PROGMEM cmb_esc[] = {KC_F, KC_J, COMBO_END};
 const uint16_t PROGMEM cmb_ent[] = {LT_BSP, LT_SPC, COMBO_END};
 const uint16_t PROGMEM cmb_tab[] = {KC_S, KC_D, COMBO_END};
