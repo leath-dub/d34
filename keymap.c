@@ -47,7 +47,9 @@ get_auto_shifted_key(uint16_t keycode, keyrecord_t *record)
         case KC_SLSH:
         case KC_DOT:
         case KC_COMM:
-            return true;
+            if (record->event.pressed) {
+                return true;
+            }
         default:
             return false;
     }
@@ -55,7 +57,14 @@ get_auto_shifted_key(uint16_t keycode, keyrecord_t *record)
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-       default:
+        case LT_BSP:
+        case LT_SPC:
+            if (record->event.pressed) {
+                return TAPPING_TERM;
+            } else {
+                return TAPPING_TERM + 100;
+            }
+        default:
             return TAPPING_TERM;
     }
 }
