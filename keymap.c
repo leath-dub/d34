@@ -114,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
     ),
     [5] = LAYOUT(
-        XXXXXXX, OSL(6),  XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, OSL(6),  XXXXXXX,
+        XXXXXXX, OSL(7),  XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, OSL(7),  XXXXXXX,
         KC_6,    KC_4,    KC_0,    KC_2,    XXXXXXX,    XXXXXXX, KC_3,    KC_1,    KC_5,    KC_7,
         XXXXXXX, XXXXXXX, XXXXXXX, KC_8,    XXXXXXX,    XXXXXXX, KC_9,    XXXXXXX, XXXXXXX, XXXXXXX,
                                    TG(5),   KC_MEH,     KC_MEH, TG(5)
@@ -124,5 +124,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         A(KC_6), A(KC_4), A(KC_0), A(KC_2), XXXXXXX,    XXXXXXX, A(KC_3), A(KC_1), A(KC_5), A(KC_7),
         XXXXXXX, XXXXXXX, XXXXXXX, A(KC_8), XXXXXXX,    XXXXXXX, A(KC_9), XXXXXXX, XXXXXXX, XXXXXXX,
                                    TG(5),   KC_MEH,     KC_MEH, TG(5)
+    ),
+    [7] = LAYOUT(
+        XXXXXXX, OSL(7),  XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, OSL(7),  XXXXXXX,
+        KC_F6,   KC_F4,   KC_F10,  KC_F2,   KC_F12,     KC_F11, KC_F3,   KC_F1,   KC_F5,   KC_F7,
+        XXXXXXX, XXXXXXX, XXXXXXX, KC_F8,   XXXXXXX,    XXXXXXX, KC_F9,   XXXXXXX, XXXXXXX, XXXXXXX,
+                                   TG(7),   KC_MEH,     KC_MEH, TG(7)
     )
 };
