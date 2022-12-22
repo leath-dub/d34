@@ -109,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TG(3),   CTL_W,   XXXXXXX, XXXXXXX, XXXXXXX,    KC_QUOT, KC_HASH, XXXXXXX, KC_AT,   XXXXXXX,
         KC_RGUI, KC_LSFT, KC_LCTL, KC_LALT, XXXXXXX,    KC_GRV,  KC_UNDS, KC_LPRN, KC_RPRN, XXXXXXX,
         CTL_Z,   CTL_X,   CTL_C,   CTL_V,   XXXXXXX,    KC_EQL,  KC_AMPR, KC_LBRC, KC_RBRC, XXXXXXX,
-                                   XXXXXXX, _______,     ______, XXXXXXX
+                                   XXXXXXX, ___,        ___,     XXXXXXX
     ),
     [2] = LAYOUT(
         KC_TILD, KC_PLUS, KC_ASTR, KC_PERC, KC_DQUO,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, TG(4),
