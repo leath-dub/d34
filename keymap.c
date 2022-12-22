@@ -62,6 +62,7 @@ const uint16_t PROGMEM cmb_ossh[] = {KC_S, KC_L, COMBO_END};
 const uint16_t PROGMEM cmb_scap[] = {KC_V, KC_M, COMBO_END};
 const uint16_t PROGMEM cmb_oscl[] = {KC_D, KC_K, COMBO_END};
 const uint16_t PROGMEM cmb_osat[] = {KC_A, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM cmb_nav[] = {KC_J, KC_K, KC_L, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmb_esc, KC_ESC),
     COMBO(cmb_ent, KC_ENT),
@@ -71,7 +72,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmb_ossh, OS_SFT),
     COMBO(cmb_scap, CW_TOGG),
     COMBO(cmb_oscl, OS_CTL),
-    COMBO(cmb_osat, OS_ALT)
+    COMBO(cmb_osat, OS_ALT),
+    COMBO(cmb_nav, TG(8))
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -130,5 +132,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_F6,   KC_F4,   KC_F10,  KC_F2,   KC_F12,     KC_F11, KC_F3,   KC_F1,   KC_F5,   KC_F7,
         XXXXXXX, XXXXXXX, XXXXXXX, KC_F8,   XXXXXXX,    XXXXXXX, KC_F9,   XXXXXXX, XXXXXXX, XXXXXXX,
                                    TG(7),   KC_MEH,     KC_MEH, TG(7)
+    ),
+    [8] = LAYOUT(
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_LGUI, KC_LSFT, KC_LCTL, KC_LALT, XXXXXXX,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                                   TG(8),   KC_SPC,     KC_BSPC, TG(8)
     )
 };
