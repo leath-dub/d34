@@ -17,3 +17,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_COUNT 10
 #define TAPPING_TOGGLE 2
 #define TAPPING_TERM_PER_KEY
+#define PERMISSIVE_HOLD
