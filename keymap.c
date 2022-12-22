@@ -3,8 +3,7 @@
 enum d34_keycodes {
     OS_SFT = SAFE_RANGE,
     OS_CTL,
-    OS_ALT,
-    CT_BSPC
+    OS_ALT
 };
 
 #define LT_SPC LT(1, KC_SPC)
