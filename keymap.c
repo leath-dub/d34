@@ -55,10 +55,7 @@ get_auto_shifted_key(uint16_t keycode, keyrecord_t *record)
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT_SPC:
-        case LT_BSP:
-            return TAPPING_TERM - 100;
-        default:
+       default:
             return TAPPING_TERM;
     }
 }
