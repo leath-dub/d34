@@ -68,7 +68,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 }
 
 const uint16_t PROGMEM cmb_esc[] = {KC_F, KC_J, COMBO_END};
-const uint16_t PROGMEM cmb_ent[] = {LT_BSP, LT_SPC, COMBO_END};
+const uint16_t PROGMEM cmb_ent[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM cmb_tab[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM cmb_wspc[] = {KC_R, KC_U, COMBO_END};
 const uint16_t PROGMEM cmb_atab[] = {KC_C, KC_V, COMBO_END};
