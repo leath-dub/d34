@@ -77,6 +77,7 @@ const uint16_t PROGMEM cmb_scap[] = {KC_V, KC_M, COMBO_END};
 const uint16_t PROGMEM cmb_oscl[] = {KC_D, KC_K, COMBO_END};
 const uint16_t PROGMEM cmb_osat[] = {KC_A, KC_SCLN, COMBO_END};
 const uint16_t PROGMEM cmb_nav[] = {KC_J, KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM cmb_ext[] = {KC_DOWN, KC_UP, KC_RGHT, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmb_esc, KC_ESC),
     COMBO(cmb_ent, KC_ENT),
@@ -87,7 +88,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(cmb_scap, CW_TOGG),
     COMBO(cmb_oscl, OS_CTL),
     COMBO(cmb_osat, OS_ALT),
-    COMBO(cmb_nav, TG(8))
+    COMBO(cmb_nav, TG(8)),
+    COMBO(cmb_ext, TG(8))
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
