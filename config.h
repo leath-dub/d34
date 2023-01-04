@@ -17,4 +17,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define COMBO_COUNT 11
 #define TAPPING_TOGGLE 2
 #define TAPPING_TERM_PER_KEY
-#define HOLD_ON_OTHER_KEY_PRESS
+#define IGNORE_MOD_TAP_INTERRUPT
