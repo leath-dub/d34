@@ -1,4 +1,7 @@
 #include QMK_KEYBOARD_H
+#define NORMAL_MODE 9
+#define INSERT_MODE 0
+#include "vim.h"
 
 enum d34_keycodes {
     OS_SFT = SAFE_RANGE,
@@ -101,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX
     )
     */
-    [0] = LAYOUT(
+    [INSERT_MODE] = LAYOUT(
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
         KC_A,    KC_S,    KC_D,    KC_F,    KC_G,       KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
@@ -154,5 +157,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LGUI, KC_LSFT, KC_LCTL, KC_LALT, XXXXXXX,    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                    TG(8),   KC_SPC,     KC_BSPC, TG(8)
+    ),
+    [NORMAL_MODE] = LAYOUT(
+        XXXXXXX, VIM_W,   XXXXXXX, XXXXXXX, XXXXXXX,    VIM_Y,   VIM_U,   VIM_I,   VIM_O,   VIM_P,
+        VIM_A,   VIM_S,   VIM_D,   XXXXXXX, XXXXXXX,    VIM_H,   VIM_J,   VIM_K,   VIM_L,   XXXXXXX,
+        XXXXXXX, VIM_X,   VIM_C,   VIM_V,   VIM_B,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                                   XXXXXXX, KC_SPC,     KC_BSPC, XXXXXXX
     )
 };
